@@ -1,0 +1,9 @@
+{
+  "name": "sean-nx-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/sean-nx-e2e/src",
+  "implicitDependencies": ["sean-nx"],
+  "// targets": "to see all targets run: nx show project sean-nx-e2e --web",
+  "targets": {}
+}

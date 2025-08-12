@@ -1,0 +1,8 @@
+{
+  "name": "test-2-shared",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/test-2-shared/src",
+  "// targets": "to see all targets run: nx show project test-2-shared --web",
+  "targets": {}
+}

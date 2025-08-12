@@ -1,11 +1,8 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
-    "production": [
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "prod": [
       "default",
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.mjs",
@@ -20,13 +17,8 @@
   "targetDefaults": {
     "@angular/build:application": {
       "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "production",
-        "^production"
-      ]
+      "dependsOn": ["^build"],
+      "inputs": ["prod", "^prod"]
     },
     "@nx/eslint:lint": {
       "cache": true,
@@ -39,11 +31,7 @@
     },
     "@nx/jest:jest": {
       "cache": true,
-      "inputs": [
-        "default",
-        "^production",
-        "{workspaceRoot}/jest.preset.js"
-      ],
+      "inputs": ["default", "^prod", "{workspaceRoot}/jest.preset.js"],
       "options": {
         "passWithNoTests": true
       },
@@ -53,6 +41,11 @@
           "codeCoverage": true
         }
       }
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
     }
   },
   "plugins": [
@@ -71,13 +64,18 @@
   ],
   "generators": {
     "@nx/angular:application": {
+      "path": "apps",
       "style": "scss",
       "routing": true,
       "standalone": true,
       "ssr": true,
+      "e2eTestRunner": "playwright",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
       "tags": "type:app"
     },
     "@nx/angular:library": {
+      "path": "libs",
       "style": "scss",
       "standalone": true,
       "buildable": true,
@@ -85,6 +83,7 @@
       "tags": "type:lib"
     },
     "@nx/node:application": {
+      "path": "apps/api",
       "tags": "type:api"
     }
   }

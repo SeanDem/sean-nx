@@ -34,7 +34,7 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 
 While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
 
-Use the plugin's generator to create new projects.
+Use the plugin's index to create new projects.
 
 To generate a new application, use:
 

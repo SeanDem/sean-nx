@@ -21,15 +21,10 @@
             "input": "apps/sean-nx/public"
           }
         ],
-        "styles": ["apps/sean-nx/src/styles.scss"],
-        "server": "apps/sean-nx/src/main.server.ts",
-        "ssr": {
-          "entry": "apps/sean-nx/src/server.ts"
-        },
-        "outputMode": "server"
+        "styles": ["apps/sean-nx/src/styles.scss"]
       },
       "configurations": {
-        "production": {
+        "prod": {
           "budgets": [
             {
               "type": "initial",
@@ -44,26 +39,26 @@
           ],
           "outputHashing": "all"
         },
-        "development": {
+        "dev": {
           "optimization": false,
           "extractLicenses": false,
           "sourceMap": true
         }
       },
-      "defaultConfiguration": "production"
+      "defaultConfiguration": "prod"
     },
     "serve": {
       "continuous": true,
       "executor": "@angular/build:dev-server",
       "configurations": {
-        "production": {
-          "buildTarget": "sean-nx:build:production"
+        "prod": {
+          "buildTarget": "sean-nx:build:prod"
         },
-        "development": {
-          "buildTarget": "sean-nx:build:development"
+        "dev": {
+          "buildTarget": "sean-nx:build:dev"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "dev"
     },
     "extract-i18n": {
       "executor": "@angular/build:extract-i18n",

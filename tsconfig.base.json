@@ -6,9 +6,6 @@
     "moduleResolution": "Bundler",
     "lib": ["ES2022", "DOM"],
     "baseUrl": ".",
-    "paths": {
-      "@sean-nx/plugin": ["tools/plugin/src/index.ts"]
-    },
     "resolveJsonModule": true,
     "declaration": true,
     "declarationMap": true,

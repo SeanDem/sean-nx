@@ -62,20 +62,23 @@
       }
     }
   ],
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
   "generators": {
     "@nx/angular:application": {
-      "path": "apps",
-      "style": "scss",
-      "routing": true,
-      "standalone": true,
-      "ssr": true,
       "e2eTestRunner": "playwright",
       "linter": "eslint",
+      "style": "scss",
       "unitTestRunner": "jest",
-      "tags": "type:app"
+      "routing": true,
+      "standalone": true,
+      "bundler": "esbuild",
+      "tags": "type:app",
+      "ssr": false
     },
     "@nx/angular:library": {
-      "path": "libs",
       "style": "scss",
       "standalone": true,
       "buildable": true,
@@ -83,7 +86,6 @@
       "tags": "type:lib"
     },
     "@nx/node:application": {
-      "path": "apps/api",
       "tags": "type:api"
     }
   }

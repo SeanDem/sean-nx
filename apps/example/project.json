@@ -4,15 +4,21 @@
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "apps/example/src",
-  "tags": ["type:app"],
+  "tags": [
+    "type:app"
+  ],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/example",
         "browser": "apps/example/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/example/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -21,7 +27,9 @@
             "input": "apps/example/public"
           }
         ],
-        "styles": ["apps/example/src/styles.scss"]
+        "styles": [
+          "apps/example/src/styles.scss"
+        ]
       },
       "configurations": {
         "production": {
@@ -71,7 +79,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/example/jest.config.ts"
       }
@@ -81,7 +91,10 @@
       "options": {
         "cwd": "apps/example",
         "command": "npx cap add android && npx cap add ios"
-      }
+      },
+      "dependsOn": [
+        "build"
+      ]
     },
     "sync": {
       "executor": "nx:run-commands",
@@ -89,7 +102,9 @@
         "cwd": "apps/example",
         "command": "npx cap sync"
       },
-      "dependsOn": ["build"]
+      "dependsOn": [
+        "build"
+      ]
     }
   }
 }

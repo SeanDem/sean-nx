@@ -1,9 +1,0 @@
-{
-  "generators": {
-    "multi-app": {
-      "factory": "./src/generators/multi-app",
-      "schema": "./src/generators/schema.json",
-      "description": "multi-app generator"
-    }
-  }
-}

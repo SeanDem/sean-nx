@@ -8,11 +8,15 @@
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/sean-nx",
         "browser": "apps/sean-nx/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/sean-nx/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -21,10 +25,12 @@
             "input": "apps/sean-nx/public"
           }
         ],
-        "styles": ["apps/sean-nx/src/styles.scss"]
+        "styles": [
+          "apps/sean-nx/src/styles.scss"
+        ]
       },
       "configurations": {
-        "prod": {
+        "production": {
           "budgets": [
             {
               "type": "initial",
@@ -39,26 +45,26 @@
           ],
           "outputHashing": "all"
         },
-        "dev": {
+        "development": {
           "optimization": false,
           "extractLicenses": false,
           "sourceMap": true
         }
       },
-      "defaultConfiguration": "prod"
+      "defaultConfiguration": "production"
     },
     "serve": {
       "continuous": true,
       "executor": "@angular/build:dev-server",
       "configurations": {
-        "prod": {
-          "buildTarget": "sean-nx:build:prod"
+        "production": {
+          "buildTarget": "sean-nx:build:production"
         },
-        "dev": {
-          "buildTarget": "sean-nx:build:dev"
+        "development": {
+          "buildTarget": "sean-nx:build:development"
         }
       },
-      "defaultConfiguration": "dev"
+      "defaultConfiguration": "development"
     },
     "extract-i18n": {
       "executor": "@angular/build:extract-i18n",
@@ -71,7 +77,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/sean-nx/jest.config.ts"
       }

@@ -117,7 +117,8 @@
     "open": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "apps/example"
+        "cwd": "apps/example",
+        "command": "npx cap open android && npx cap open ios"
       },
       "configurations": {
         "android": {

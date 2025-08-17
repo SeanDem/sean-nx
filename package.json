@@ -16,6 +16,7 @@
     "@angular/platform-server": "~20.1.6",
     "@angular/router": "~20.1.6",
     "@capacitor/android": "^6.2.1",
+    "@capacitor/app": "^6.0.0",
     "@capacitor/core": "^6.2.1",
     "@capacitor/ios": "^6.2.1",
     "@capacitor/preferences": "^5.0.8",

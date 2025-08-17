@@ -85,63 +85,6 @@
       "options": {
         "jestConfig": "apps/example/jest.config.ts"
       }
-    },
-    "add": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "apps/example",
-        "command": "npx cap add android && npx cap add ios"
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "sync": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "apps/example",
-        "command": "npx cap sync"
-      },
-      "configurations": {
-        "android": {
-          "command": "npx cap sync android"
-        },
-        "ios": {
-          "command": "npx cap sync ios"
-        }
-      },
-      "dependsOn": [
-        "build"
-      ]
-    },
-    "open": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "apps/example",
-        "command": "npx cap open android && npx cap open ios"
-      },
-      "configurations": {
-        "android": {
-          "command": "npx cap open android"
-        },
-        "ios": {
-          "command": "npx cap open ios"
-        }
-      }
-    },
-    "run": {
-      "options": {
-        "cwd": "apps/example"
-      },
-      "executor": "nx:run-commands",
-      "configurations": {
-        "android": {
-          "command": "npx cap run android"
-        },
-        "ios": {
-          "command": "npx cap run ios"
-        }
-      }
     }
   }
 }

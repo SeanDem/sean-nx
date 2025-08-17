@@ -60,7 +60,8 @@
       "options": {
         "targetName": "lint"
       }
-    }
+    },
+    "@nxext/capacitor/plugin"
   ],
   "workspaceLayout": {
     "appsDir": "apps",

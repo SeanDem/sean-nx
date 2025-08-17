@@ -1,13 +1,13 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.sean.nx.example',
-  appName: 'example',
-  webDir: '../../dist/apps/example/browser',
+  appId: 'com.sean.nx.tip.calc',
+  appName: 'tip-calc',
+  webDir: '../../dist/apps/tip-calc',
   bundledWebRuntime: false,
   server: {
-    androidScheme: 'https'
-  }
+    androidScheme: 'https',
+  },
 };
 
 export default config;

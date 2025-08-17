@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "prod": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -17,8 +20,13 @@
   "targetDefaults": {
     "@angular/build:application": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["prod", "^prod"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "prod",
+        "^prod"
+      ]
     },
     "@nx/eslint:lint": {
       "cache": true,
@@ -31,7 +39,11 @@
     },
     "@nx/jest:jest": {
       "cache": true,
-      "inputs": ["default", "^prod", "{workspaceRoot}/jest.preset.js"],
+      "inputs": [
+        "default",
+        "^prod",
+        "{workspaceRoot}/jest.preset.js"
+      ],
       "options": {
         "passWithNoTests": true
       },
@@ -44,8 +56,13 @@
     },
     "@nx/js:tsc": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["default", "^default"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default"
+      ]
     }
   },
   "plugins": [
@@ -74,20 +91,23 @@
       "style": "scss",
       "unitTestRunner": "jest",
       "routing": true,
-      "standalone": true,
       "bundler": "esbuild",
       "tags": "type:app",
       "ssr": false
     },
     "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest",
       "style": "scss",
-      "standalone": true,
       "buildable": true,
       "changeDetection": "OnPush",
       "tags": "type:lib"
     },
     "@nx/node:application": {
       "tags": "type:api"
+    },
+    "@nx/angular:component": {
+      "style": "scss"
     }
   }
 }

@@ -63,6 +63,16 @@
         "default",
         "^default"
       ]
+    },
+    "@nx/angular:ng-packagr-lite": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "default",
+        "^default"
+      ]
     }
   },
   "plugins": [
@@ -87,6 +97,7 @@
   "generators": {
     "@nx/angular:application": {
       "e2eTestRunner": "none",
+      "standalone": false,
       "linter": "eslint",
       "style": "scss",
       "unitTestRunner": "jest",
@@ -98,6 +109,7 @@
     "@nx/angular:library": {
       "linter": "eslint",
       "unitTestRunner": "jest",
+      "strict": false,
       "style": "scss",
       "buildable": true,
       "changeDetection": "OnPush",

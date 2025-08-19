@@ -1,8 +1,5 @@
 @import '@angular/cdk/overlay-prebuilt.css';
 
-/* You can add global styles to this file, and also import other style files */
-
-
 
 :root {
 --font-sans: ''
@@ -51,8 +48,3 @@
 --ring: 0deg 0.01% 45.16%;
 }
 
-@layer base {
-* {
-@apply border-border;
-}
-}

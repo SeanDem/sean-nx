@@ -2,9 +2,7 @@
   "name": "@sean-nx/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-    "new-app": "nx g @nx/angular:application $npm_config_name --standalone && npm install @ionic/angular @nxext/capacitor @spartan-ng/cli && npx nx g @nx/angular:setup-tailwind --project=$npm_config_name && nx g @nxext/capacitor:configuration --project=$npm_config_name --webDir=dist/apps/$npm_config_name/browser && npx nx g @spartan-ng/cli:ui-theme --project=$npm_config_name"
-  },
+  "scripts": {},
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "~20.1.5",

@@ -14,14 +14,14 @@
         "browser": "apps/tip-calc/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/tip-calc/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
+        "inlineStyleLanguage": "css",
         "assets": [
           {
             "glob": "**/*",
             "input": "apps/tip-calc/public"
           }
         ],
-        "styles": ["apps/tip-calc/src/styles.scss"]
+        "styles": ["apps/tip-calc/src/styles.css"]
       },
       "configurations": {
         "production": {

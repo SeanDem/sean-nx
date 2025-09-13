@@ -92,7 +92,6 @@ nx g @nx/angular:application <your-app-name> --standalone
 
 2. Add Ionic Framework
    npm install @ionic/angular
-
 Then, update apps/<your-app-name>/src/app/app.config.ts to include importProvidersFrom(IonicModule.forRoot({})) in the providers array.
 
 3. Setup Tailwind CSS

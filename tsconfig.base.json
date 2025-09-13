@@ -28,7 +28,6 @@
     "strict": true,
     "skipLibCheck": false,
     "incremental": true,
-    "tsBuildInfoFile": ".tsbuildinfo",
     "paths": {
       "@spartan-ng/helm/accordion": [
         "libs/ui/ui-accordion-helm/src/index.ts"

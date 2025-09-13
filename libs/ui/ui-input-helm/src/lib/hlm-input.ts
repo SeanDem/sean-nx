@@ -34,16 +34,16 @@ export const inputVariants = cva(
 type InputVariants = VariantProps<typeof inputVariants>;
 
 @Directive({
-	selector: '[hlmInput]',
-	host: {
-		'[class]': '_computedClass()',
-	},
-	providers: [
-		{
-			provide: BrnFormFieldControl,
-			useExisting: forwardRef(() => HlmInput),
-		},
-	],
+  selector: '[hlmInput]',
+  host: {
+    '[class]': '_computedClass()'
+  },
+  providers: [
+    {
+      provide: BrnFormFieldControl,
+      useExisting: forwardRef(() => HlmInput)
+    }
+  ],
 })
 export class HlmInput implements BrnFormFieldControl, DoCheck {
 	public readonly error = input<InputVariants['error']>('auto');

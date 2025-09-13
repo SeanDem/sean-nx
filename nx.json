@@ -97,5 +97,6 @@
     "@nx/node:application": {
       "tags": "type:api"
     }
-  }
+  },
+  "nxCloudId": "68a3f221feeb77164c8c4edd"
 }

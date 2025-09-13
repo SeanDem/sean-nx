@@ -1,26 +1,171 @@
-<div class="p-4 sm:p-8 flex flex-col items-center gap-4">
-  <h1 class="text-2xl font-bold">Tip Calculator</h1>
+<div class="p-4 sm:p-8 max-w-md mx-auto flex flex-col space-y-6">
+  <h1 class="text-2xl font-bold text-center">Tip Calculator</h1>
 
-  <div class="w-full max-w-sm">
-    <input
-      hlmInput
-      id="billAmount"
-      type="number"
-      [(ngModel)]="billAmount"
-      (ngModelChange)="onBillAmountChange()"
-      placeholder="Enter bill amount"
-    />
+  <div class="space-y-2">
+    <label hlmLabel for="billAmount" class="text-sm font-medium">Bill amount</label>
+    <div class="relative">
+      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+      <input
+        hlmInput
+        id="billAmount"
+        inputmode="decimal"
+        type="number"
+        step="0.01"
+        min="0"
+        [ngModel]="bill() ?? ''"
+        (ngModelChange)="onBillInput($event)"
+        placeholder="0.00"
+        class="pl-7"
+        aria-describedby="bill-hint"
+      />
+    </div>
   </div>
 
-  <div class="w-full max-w-sm mt-4 space-y-2">
-    @for (tip of tips; track tip.percentage) {
-      <div class="flex justify-between items-baseline p-3 rounded-md">
-          <div class="text-l justify-center">{{ tip.percentage }}%</div>
-        <div class="text-right">
-          <div class="font-semibold">{{ tip.amount | currency }}</div>
-          <div class="text-xs text-muted-foreground">Total: {{ tip.total | currency }}</div>
+  <div class="space-y-2">
+    <div class="grid grid-cols-3 gap-2">
+      @for (pct of tipPercentages; track pct) {
+        <label
+          class="cursor-pointer select-none rounded-xl border p-2 text-center hover:bg-accent focus-within:ring-2 focus-within:ring-ring">
+          <input
+            class="sr-only"
+            type="radio"
+            name="tip"
+            [checked]="!useCustom() && selectedPercent() === pct"
+            (change)="choosePreset(pct)"
+          />
+          <div
+            [class.bg-primary]="!useCustom() && selectedPercent() === pct"
+            [class.text-primary-foreground]="!useCustom() && selectedPercent() === pct"
+            class="rounded-lg py-1"
+          >
+            <div class="text-sm font-semibold">{{ pct }}%</div>
+            <div class="text-xs opacity-90">{{ getAmount(pct) | currency }}</div>
+            <div class="text-[10px] opacity-60">Total: {{ getTotalAmount(pct) | currency }}</div>
+          </div>
+        </label>
+      }
+    </div>
+
+    <div class="mt-2 rounded-xl border p-3 space-y-3">
+      <label class="flex items-center gap-3 cursor-pointer">
+        <input
+          class="sr-only"
+          type="radio"
+          name="tip"
+          [checked]="useCustom()"
+          (change)="chooseCustom()"
+        />
+        <span
+          class="px-2 py-1 rounded-md"
+          [class.bg-primary]="useCustom()"
+          [class.text-primary-foreground]="useCustom()"
+        >
+      Custom %
+    </span>
+        <span class="ml-auto text-sm font-medium">{{ customPercent() ?? 0 }}%</span>
+      </label>
+
+      <hlm-slider
+        class="w-full"
+        [min]="0"
+        [max]="40"
+        [step]="1"
+        [value]="customPercent() ?? 0"
+        (valueChange)="onCustomInput($event); chooseCustom()"
+      />
+
+      <div class="flex items-end justify-between text-xs">
+        <div>
+          <div>Tip: {{ ((bill() ?? 0) * ((customPercent() ?? 0) / 100)) | currency }}</div>
+          <div class="text-muted-foreground">
+            Total: {{ ((bill() ?? 0) + ((bill() ?? 0) * ((customPercent() ?? 0) / 100))) | currency }}
+          </div>
         </div>
+        <button hlmBtn variant="outline" size="sm" (click)="onCustomInput(0)">Reset</button>
       </div>
-    }
+    </div>
   </div>
+
+  <div class="rounded-2xl border p-4 shadow-sm">
+    <div class="flex justify-between text-sm">
+      <span class="text-muted-foreground">Tip</span>
+      <span class="font-semibold">{{ selectedTipAmount() | currency }}</span>
+    </div>
+    <div class="flex justify-between text-sm mt-1">
+      <span class="text-muted-foreground">Subtotal</span>
+      <span class="font-medium">{{ subtotal() | currency }}</span>
+    </div>
+    <div class="flex justify-between text-base mt-2">
+      <span class="font-semibold">Total</span>
+      <span class="font-semibold">{{ totalRounded() | currency }}</span>
+    </div>
+    <div class="flex flex-col text-sm gap-1">
+      <div class="flex justify-between items-center">
+        @if (people() > 1) {
+          <span class="text-muted-foreground">Per person</span>
+          <span class="font-medium">{{ perPerson() | currency }}</span>
+        }
+      </div>
+
+      <div class="flex justify-between items-center">
+        @if (roundMode() !== 'none') {
+          <span class="text-muted-foreground">Total pre rounding</span>
+          <span class="font-medium">{{ perPerson() | currency }}</span>
+        }
+      </div>
+    </div>
+    <p class="sr-only" aria-live="polite">
+      Total {{ totalRounded() | currency }}. Per person {{ perPerson() | currency }}.
+    </p>
+    <div class="mt-3 space-y-5">
+      <div class="space-y-2">
+        <div class="text-sm font-medium">Round Bill</div>
+        <div class="flex gap-2">
+          <button
+            hlmBtn
+            variant="outline"
+            [class.bg-primary]="roundMode() === 'down'"
+            [class.text-primary-foreground]="roundMode() === 'down'"
+            (click)="toggleRound('down')"
+            [attr.aria-pressed]="roundMode() === 'down'"
+          >
+            Down
+          </button>
+          <button
+            hlmBtn
+            variant="outline"
+            [class.bg-primary]="roundMode() === 'nearest'"
+            [class.text-primary-foreground]="roundMode() === 'nearest'"
+            (click)="toggleRound('nearest')"
+            [attr.aria-pressed]="roundMode() === 'nearest'"
+          >
+            Nearest
+          </button>
+          <button
+            hlmBtn
+            variant="outline"
+            [class.bg-primary]="roundMode() === 'up'"
+            [class.text-primary-foreground]="roundMode() === 'up'"
+            (click)="toggleRound('up')"
+            [attr.aria-pressed]="roundMode() === 'up'"
+          >
+            Up
+          </button>
+        </div>
+        <p class="text-xs text-muted-foreground">Round the total amount.</p>
+      </div>
+
+      <div class="space-y-2">
+        <div class="text-sm font-medium">Split Bill</div>
+        <div class="flex items-center gap-2">
+          <button hlmBtn variant="outline" size="icon" (click)="changePeople(-1)" aria-label="Decrease people">−
+          </button>
+          <div class="min-w-[3rem] text-center font-medium" aria-live="polite">{{ people() }}</div>
+          <button hlmBtn variant="outline" size="icon" (click)="changePeople(1)" aria-label="Increase people">+</button>
+        </div>
+        <p class="text-xs text-muted-foreground">Number of people paying.</p>
+      </div>
+    </div>
+  </div>
+
 </div>

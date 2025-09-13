@@ -1,8 +1,9 @@
 {
   "name": "tip-calc",
   "dependencies": {
-    "@capacitor/ios": "../../node_modules/@capacitor/ios",
-    "@capacitor/android": "../../node_modules/@capacitor/android"
+    "@capacitor/android": "../../node_modules/@capacitor/android",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/ios": "../../node_modules/@capacitor/ios"
   },
   "devDependencies": {
     "@capacitor/cli": "^6.0.0"

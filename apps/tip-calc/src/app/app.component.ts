@@ -5,7 +5,9 @@ import { TipCalcComponent } from './tip-calc/tip-calc.component';
   selector: 'app-root',
   standalone: true,
   imports: [TipCalcComponent],
-  template: ` <tip-calc /> `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <app-tip-calc /> `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class AppComponent {
+}

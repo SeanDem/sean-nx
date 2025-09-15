@@ -17,6 +17,9 @@ importers:
       '@capacitor/ios':
         specifier: ../../node_modules/@capacitor/ios
         version: link:../../node_modules/@capacitor/ios
+      prettier:
+        specifier: ^3.6.2
+        version: 3.6.2
     devDependencies:
       '@capacitor/cli':
         specifier: ^6.0.0
@@ -1124,6 +1127,11 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
+  prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
 
@@ -1859,7 +1867,7 @@ snapshots:
   '@prettier/plugin-xml@2.2.0':
     dependencies:
       '@xml-tools/parser': 1.0.11
-      prettier: 2.8.8
+      prettier: 3.6.2
 
   '@trapezedev/gradle-parse@7.1.3': {}
 
@@ -2839,6 +2847,8 @@ snapshots:
       tunnel-agent: 0.6.0
 
   prettier@2.8.8: {}
+
+  prettier@3.6.2: {}
 
   process-nextick-args@2.0.1: {}
 

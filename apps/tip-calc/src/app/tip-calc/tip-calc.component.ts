@@ -5,8 +5,11 @@ import { HlmInputModule } from '@spartan-ng/helm/input';
 import { HlmLabelModule } from '@spartan-ng/helm/label';
 import { HlmButtonModule } from '@spartan-ng/helm/button';
 import { HlmSlider } from '@spartan-ng/helm/slider';
+import { HlmRadioGroupModule } from '@spartan-ng/helm/radio-group';
+import { HlmToggleModule } from '@spartan-ng/helm/toggle';
+import { HlmToggleGroupModule } from '@spartan-ng/helm/toggle-group';
 
-type RoundMode = 'none' | 'up' | 'down' | 'nearest';
+type RoundMode = 'up' | 'down' | 'nearest';
 
 @Component({
   selector: 'app-tip-calc',
@@ -18,25 +21,28 @@ type RoundMode = 'none' | 'up' | 'down' | 'nearest';
     HlmLabelModule,
     HlmButtonModule,
     HlmSlider,
-    CurrencyPipe
+    CurrencyPipe,
+    HlmRadioGroupModule,
+    HlmToggleModule,
+    HlmToggleGroupModule,
   ],
-  templateUrl: './tip-calc.component.html'
+  templateUrl: './tip-calc.component.html',
 })
 export class TipCalcComponent {
-  bill = signal<number>(0);
-  tipPercentages = [15, 18, 20, 22, 25, 30] as const;
+  roundModes: RoundMode[] = ['up', 'nearest', 'down'];
+  bill = signal<number | null>(null);
+  tipPercentages = [10, 15, 20, 25, 30] as const;
   selectedPercent = signal<number>(20);
   useCustom = signal(false);
-  customPercent = signal<number | null>(null);
+  customPercent = signal<number>(25);
   people = signal(1);
-  roundMode = signal<RoundMode>('none');
-
+  roundMode = signal<RoundMode | null>(null);
+  tipPerPerson = computed(() => this.selectedTipAmount() / Math.max(1, this.people()));
   selectedTipAmount = computed(() => {
     const b = this.bill() ?? 0;
     const pct = this.useCustom() ? (this.customPercent() ?? 0) : this.selectedPercent();
     return b * (Math.max(0, pct) / 100);
   });
-
   subtotal = computed(() => this.bill() ?? 0);
 
   total = computed(() => this.subtotal() + this.selectedTipAmount());
@@ -44,7 +50,15 @@ export class TipCalcComponent {
   totalRounded = computed(() => {
     const t = this.total();
     const m = this.roundMode();
-    return m === 'up' ? Math.ceil(t) : m === 'down' ? Math.floor(t) : t;
+    if (m === 'up') {
+      return Math.ceil(t);
+    } else if (m === 'down') {
+      return Math.floor(t);
+    } else if (m === 'nearest') {
+      return Math.round(t);
+    } else {
+      return t;
+    }
   });
 
   perPerson = computed(() => this.totalRounded() / Math.max(1, this.people()));
@@ -57,7 +71,7 @@ export class TipCalcComponent {
   onCustomInput(v: unknown) {
     const n = typeof v === 'number' ? v : Number(v);
     if (v === '') {
-      this.customPercent.set(null);
+      this.customPercent.set(0);
     } else {
       const pct = Number.isFinite(n) ? Math.max(0, n) : 0;
       this.customPercent.set(pct);
@@ -66,9 +80,9 @@ export class TipCalcComponent {
     }
   }
 
-  choosePreset(percent: number) {
+  choosePreset(percent: unknown) {
     this.useCustom.set(false);
-    this.selectedPercent.set(percent);
+    this.selectedPercent.set(percent as number);
   }
 
   chooseCustom() {
@@ -77,18 +91,15 @@ export class TipCalcComponent {
   }
 
   changePeople(delta: number) {
-    this.people.update(percent => Math.max(1, percent + delta));
+    this.people.update((percent) => Math.max(1, percent + delta));
   }
 
-  toggleRound(mode: RoundMode) {
-    this.roundMode.set(this.roundMode() === mode ? 'none' : mode);
+  setRoundMode(mode: unknown) {
+    if (mode === this.roundMode()) {
+      mode = null;
+    }
+    this.roundMode.set(mode as RoundMode);
   }
 
-  getAmount(percent: number) {
-    return this.bill() * (percent / 100);
-  }
-
-  getTotalAmount(percent: number) {
-    return this.bill() + this.getAmount(percent);
-  }
+  protected readonly console = console;
 }

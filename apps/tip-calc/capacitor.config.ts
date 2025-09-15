@@ -5,7 +5,10 @@ const config: CapacitorConfig = {
   appName: 'tip-calc',
   webDir: '../../dist/apps/tip-calc/browser',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'https',
+    url: 'http://192.168.6.21:5173',
+    cleartext: true,
+    allowNavigation: ['*']
   }
 };
 

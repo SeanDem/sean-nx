@@ -3,7 +3,8 @@
   "dependencies": {
     "@capacitor/android": "../../node_modules/@capacitor/android",
     "@capacitor/assets": "^3.0.5",
-    "@capacitor/ios": "../../node_modules/@capacitor/ios"
+    "@capacitor/ios": "../../node_modules/@capacitor/ios",
+    "prettier": "^3.6.2"
   },
   "devDependencies": {
     "@capacitor/cli": "^6.0.0"

@@ -16,7 +16,246 @@ body {
   --font-sans: '';
 }
 
-:root {
+
+:root.green {
+  --background: 0deg 0% 100%;
+  --foreground: 344.97deg 13.46% 3.85%;
+
+  --card: 0deg 0% 98%;
+  --card-foreground: 344.97deg 13.46% 3.85%;
+
+  --popover: 0deg 0% 100%;
+  --popover-foreground: 344.97deg 13.46% 3.85%;
+
+  --primary: 158deg 40% 28%;
+  --primary-foreground: 0deg 0% 100%;
+
+  --secondary: 158deg 30% 94%;
+  --secondary-foreground: 158deg 40% 22%;
+
+  --muted: 344.02deg 3.93% 95.75%;
+  --muted-foreground: 239.97deg 4.41% 46.34%;
+
+  --accent: 158deg 45% 96%;
+  --accent-foreground: 158deg 45% 22%;
+
+  --destructive: 351.72deg 100% 40.53%;
+
+  --border: 344.76deg 6.76% 89.87%;
+  --input: 344.76deg 6.76% 89.87%;
+
+  --ring: 158deg 45% 36%;
+  --radius: 0.625rem;
+}
+
+:root.dark.green {
+  --background: 158deg 20% 8%;
+  --foreground: 0deg 0% 98%;
+
+  --card: 158deg 18% 12%;
+  --card-foreground: 0deg 0% 98%;
+
+  --popover: 158deg 18% 12%;
+  --popover-foreground: 0deg 0% 98%;
+
+  --primary: 158deg 45% 40%;
+  --primary-foreground: 0deg 0% 100%;
+
+  --secondary: 158deg 22% 20%;
+  --secondary-foreground: 0deg 0% 98%;
+
+  --muted: 158deg 15% 16%;
+  --muted-foreground: 158deg 20% 70%;
+
+  --accent: 158deg 35% 22%;
+  --accent-foreground: 0deg 0% 98%;
+
+  --destructive: 351.72deg 85% 55%;
+
+  --border: 158deg 15% 20%;
+  --input: 158deg 15% 20%;
+
+  --ring: 158deg 45% 40%;
+  --radius: 0.625rem;
+}
+
+
+
+
+:root.neutral {
+  --background: 0deg 0% 100%;
+  --foreground: 0deg 0.02% 3.94%;
+  --card: 0deg 0% 100%;
+  --card-foreground: 0deg 0.02% 3.94%;
+  --popover: 0deg 0% 100%;
+  --popover-foreground: 0deg 0.02% 3.94%;
+  --primary: 0deg 0.02% 9.06%;
+  --primary-foreground: 0deg 0.5% 98.03%;
+  --secondary: 0deg 0.24% 96.06%;
+  --secondary-foreground: 0deg 0.02% 9.06%;
+  --muted: 0deg 0.24% 96.06%;
+  --muted-foreground: 0deg 0.01% 45.16%;
+  --accent: 0deg 0.24% 96.06%;
+  --accent-foreground: 0deg 0.02% 9.06%;
+  --destructive: 351.72deg 100% 40.53%;
+  --border: 0deg 0.09% 89.82%;
+  --input: 0deg 0.09% 89.82%;
+  --ring: 0deg 0.02% 63.02%;
+  --radius: 0.625rem;
+}
+
+:root.dark.neutral {
+  --background: 0deg 0.02% 3.94%;
+  --foreground: 0deg 0.5% 98.03%;
+  --card: 0deg 0.02% 9.06%;
+  --card-foreground: 0deg 0.5% 98.03%;
+  --popover: 0deg 0.02% 9.06%;
+  --popover-foreground: 0deg 0.5% 98.03%;
+  --primary: 0deg 0.09% 89.82%;
+  --primary-foreground: 0deg 0.02% 9.06%;
+  --secondary: 0deg 0.01% 14.94%;
+  --secondary-foreground: 0deg 0.5% 98.03%;
+  --muted: 0deg 0.01% 14.94%;
+  --muted-foreground: 0deg 0.02% 63.02%;
+  --accent: 0deg 0% 14.9%;
+  --accent-foreground: 0deg 0.5% 98.03%;
+  --destructive: 358.76deg 100% 69.84%;
+  --border: 0deg 0% 13.73%;
+  --input: 0deg 0% 18.43%;
+  --ring: 0deg 0.01% 45.16%;
+}
+
+
+:root.gray {
+  --background: 0deg 0% 100%;
+  --foreground: 224.06deg 72.27% 4.17%;
+  --card: 0deg 0% 100%;
+  --card-foreground: 224.06deg 72.27% 4.17%;
+  --popover: 0deg 0% 100%;
+  --popover-foreground: 224.06deg 72.27% 4.17%;
+  --primary: 220.99deg 41.69% 11.07%;
+  --primary-foreground: 344.54deg 18.99% 98.19%;
+  --secondary: 344.7deg 12.65% 95.9%;
+  --secondary-foreground: 220.99deg 41.69% 11.07%;
+  --muted: 344.7deg 12.65% 95.9%;
+  --muted-foreground: 219.99deg 10.27% 46.3%;
+  --accent: 344.7deg 12.65% 95.9%;
+  --accent-foreground: 220.99deg 41.69% 11.07%;
+  --destructive: 351.72deg 100% 40.53%;
+  --border: 344.79deg 11.54% 91.05%;
+  --input: 344.79deg 11.54% 91.05%;
+  --ring: 217.85deg 11.94% 64.27%;
+  --radius: 0.625rem;
+}
+
+:root.dark.gray {
+  --background: 224.06deg 72.27% 4.17%;
+  --foreground: 344.54deg 18.99% 98.19%;
+  --card: 220.99deg 41.69% 11.07%;
+  --card-foreground: 344.54deg 18.99% 98.19%;
+  --popover: 220.99deg 41.69% 11.07%;
+  --popover-foreground: 344.54deg 18.99% 98.19%;
+  --primary: 344.79deg 11.54% 91.05%;
+  --primary-foreground: 220.99deg 41.69% 11.07%;
+  --secondary: 214.98deg 31% 16.95%;
+  --secondary-foreground: 344.54deg 18.99% 98.19%;
+  --muted: 214.98deg 31% 16.95%;
+  --muted-foreground: 217.85deg 11.94% 64.27%;
+  --accent: 214.98deg 31% 16.95%;
+  --accent-foreground: 344.54deg 18.99% 98.19%;
+  --destructive: 358.76deg 100% 69.84%;
+  --border: 0deg 0% 13.73%;
+  --input: 0deg 0% 18.43%;
+  --ring: 219.99deg 10.27% 46.3%;
+}
+
+:root.slate {
+  --background: 0deg 0% 100%;
+  --foreground: 228.82deg 85.15% 5%;
+  --card: 0deg 0% 100%;
+  --card-foreground: 228.82deg 85.15% 5%;
+  --popover: 0deg 0% 100%;
+  --popover-foreground: 228.82deg 85.15% 5%;
+  --primary: 222.33deg 49.39% 11.3%;
+  --primary-foreground: 344.69deg 27.87% 98.13%;
+  --secondary: 344.79deg 33.25% 96.34%;
+  --secondary-foreground: 222.33deg 49.39% 11.3%;
+  --muted: 344.79deg 33.25% 96.34%;
+  --muted-foreground: 215.37deg 18.38% 47.03%;
+  --accent: 344.79deg 33.25% 96.34%;
+  --accent-foreground: 222.33deg 49.39% 11.3%;
+  --destructive: 351.72deg 100% 40.53%;
+  --border: 214.19deg 33.11% 91.43%;
+  --input: 214.19deg 33.11% 91.43%;
+  --ring: 214.97deg 22.62% 64.51%;
+  --radius: 0.625rem;
+}
+
+:root.dark.slate {
+  --background: 228.82deg 85.15% 5%;
+  --foreground: 344.69deg 27.87% 98.13%;
+  --card: 222.33deg 49.39% 11.3%;
+  --card-foreground: 344.69deg 27.87% 98.13%;
+  --popover: 222.33deg 49.39% 11.3%;
+  --popover-foreground: 344.69deg 27.87% 98.13%;
+  --primary: 214.19deg 33.11% 91.43%;
+  --primary-foreground: 222.33deg 49.39% 11.3%;
+  --secondary: 217.27deg 36.08% 17.54%;
+  --secondary-foreground: 344.69deg 27.87% 98.13%;
+  --muted: 217.27deg 36.08% 17.54%;
+  --muted-foreground: 214.97deg 22.62% 64.51%;
+  --accent: 217.27deg 36.08% 17.54%;
+  --accent-foreground: 344.69deg 27.87% 98.13%;
+  --destructive: 358.76deg 100% 69.84%;
+  --border: 0deg 0% 13.73%;
+  --input: 0deg 0% 18.43%;
+  --ring: 219.99deg 10.27% 46.3%;
+}
+
+
+:root.stone {
+  --background: 0deg 0% 100%;
+  --foreground: 344.17deg 10.1% 4.29%;
+  --card: 0deg 0% 100%;
+  --card-foreground: 344.17deg 10.1% 4.29%;
+  --popover: 0deg 0% 100%;
+  --popover-foreground: 344.17deg 10.1% 4.29%;
+  --primary: 344.37deg 6.88% 10.34%;
+  --primary-foreground: 344deg 8.87% 98.11%;
+  --secondary: 344.02deg 4.34% 96.14%;
+  --secondary-foreground: 344.37deg 6.88% 10.34%;
+  --muted: 344.02deg 4.34% 96.14%;
+  --muted-foreground: 25.05deg 5.89% 44.64%;
+  --accent: 344.02deg 4.34% 96.14%;
+  --accent-foreground: 344.37deg 6.88% 10.34%;
+  --destructive: 351.72deg 100% 40.53%;
+  --border: 344.71deg 5.22% 90.18%;
+  --input: 344.71deg 5.22% 90.18%;
+  --ring: 24.07deg 5.83% 63.06%;
+  --radius: 0.625rem;
+}
+
+:root.dark.stone {
+  --background: 344.17deg 10.1% 4.29%;
+  --foreground: 344deg 8.87% 98.11%;
+  --card: 344.37deg 6.88% 10.34%;
+  --card-foreground: 344deg 8.87% 98.11%;
+  --popover: 344.37deg 6.88% 10.34%;
+  --popover-foreground: 344deg 8.87% 98.11%;
+  --primary: 344.71deg 5.22% 90.18%;
+  --primary-foreground: 344.37deg 6.88% 10.34%;
+  --secondary: 344.41deg 5.76% 15.22%;
+  --secondary-foreground: 344deg 8.87% 98.11%;
+  --muted: 344.41deg 5.76% 15.22%;
+  --muted-foreground: 24.07deg 5.83% 63.06%;
+  --accent: 344.41deg 5.76% 15.22%;
+  --accent-foreground: 344deg 8.87% 98.11%;
+  --destructive: 358.76deg 100% 69.84%;
+  --border: 0deg 0% 13.73%;
+  --input: 0deg 0% 18.43%;
+}
+
+:root.zinc {
   --background: 0deg 0% 100%;
   --foreground: 344.97deg 13.46% 3.85%;
   --card: 0deg 0% 100%;
@@ -38,7 +277,7 @@ body {
   --radius: 0.625rem;
 }
 
-:root.dark {
+:root.dark.zinc {
   --background: 344.97deg 13.46% 3.85%;
   --foreground: 0deg 0.5% 98.03%;
   --card: 344.35deg 7.21% 9.8%;
@@ -57,4 +296,11 @@ body {
   --border: 0deg 0% 13.73%;
   --input: 0deg 0% 18.43%;
   --ring: 239.97deg 4.41% 46.34%;
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
 }

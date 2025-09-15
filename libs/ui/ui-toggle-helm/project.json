@@ -4,7 +4,8 @@
   "sourceRoot": "libs/ui/ui-toggle-helm/src",
   "prefix": "hlm",
   "projectType": "library",
-  "tags": [],
+  "tags": [  "scope:shared",
+    "type:ui"],
   "targets": {
     "build": {
       "executor": "@nx/angular:ng-packagr-lite",

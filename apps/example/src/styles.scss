@@ -48,3 +48,56 @@
 --ring: 0deg 0.01% 45.16%;
 }
 
+
+
+
+
+
+:root .gray {
+--background: 0deg 0% 100%;
+--foreground: 224.06deg 72.27% 4.17%;
+--card: 0deg 0% 100%;
+--card-foreground: 224.06deg 72.27% 4.17%;
+--popover: 0deg 0% 100%;
+--popover-foreground: 224.06deg 72.27% 4.17%;
+--primary: 220.99deg 41.69% 11.07%;
+--primary-foreground: 344.54deg 18.99% 98.19%;
+--secondary: 344.7deg 12.65% 95.9%;
+--secondary-foreground: 220.99deg 41.69% 11.07%;
+--muted: 344.7deg 12.65% 95.9%;
+--muted-foreground: 219.99deg 10.27% 46.3%;
+--accent: 344.7deg 12.65% 95.9%;
+--accent-foreground: 220.99deg 41.69% 11.07%;
+--destructive: 351.72deg 100% 40.53%;
+--border: 344.79deg 11.54% 91.05%;
+--input: 344.79deg 11.54% 91.05%;
+--ring: 217.85deg 11.94% 64.27%;
+--radius: 0.625rem;
+}
+
+:root.dark .gray {
+--background: 224.06deg 72.27% 4.17%;
+--foreground: 344.54deg 18.99% 98.19%;
+--card: 220.99deg 41.69% 11.07%;
+--card-foreground: 344.54deg 18.99% 98.19%;
+--popover: 220.99deg 41.69% 11.07%;
+--popover-foreground: 344.54deg 18.99% 98.19%;
+--primary: 344.79deg 11.54% 91.05%;
+--primary-foreground: 220.99deg 41.69% 11.07%;
+--secondary: 214.98deg 31% 16.95%;
+--secondary-foreground: 344.54deg 18.99% 98.19%;
+--muted: 214.98deg 31% 16.95%;
+--muted-foreground: 217.85deg 11.94% 64.27%;
+--accent: 214.98deg 31% 16.95%;
+--accent-foreground: 344.54deg 18.99% 98.19%;
+--destructive: 358.76deg 100% 69.84%;
+--border: 0deg 0% 13.73%;
+--input: 0deg 0% 18.43%;
+--ring: 219.99deg 10.27% 46.3%;
+}
+
+@layer base {
+* {
+@apply border-border;
+}
+}
